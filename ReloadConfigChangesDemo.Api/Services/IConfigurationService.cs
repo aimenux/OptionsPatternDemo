@@ -2,8 +2,7 @@
 {
     public interface IConfigurationService
     {
-        string[] GetAllKeys();
-        string[] GetAllValues();
+        string[] GetValues();
         string GetKeyValue(string key);
     }
 }

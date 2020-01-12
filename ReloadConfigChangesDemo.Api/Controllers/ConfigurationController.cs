@@ -16,21 +16,14 @@ namespace ReloadConfigChangesDemo.Api.Controllers
         }
 
         [HttpGet]
-        [Route("keys")]
-        public ActionResult<IEnumerable<string>> GetKeys()
-        {
-            return _configurationService.GetAllKeys();
-        }
-
-        [HttpGet]
         [Route("values")]
         public ActionResult<IEnumerable<string>> GetValues()
         {
-            return _configurationService.GetAllValues();
+            return _configurationService.GetValues();
         }
 
         [HttpGet("{key}")]
-        public ActionResult<string> Get(string key)
+        public ActionResult<string> GetKeyValue(string key)
         {
             return _configurationService.GetKeyValue(key);
         }

@@ -25,7 +25,7 @@ namespace ReloadConfigChangesDemo.Api
             ConfigureIoc(services);
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public static void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -47,7 +47,7 @@ namespace ReloadConfigChangesDemo.Api
 
         private void ConfigureSettings(IServiceCollection services)
         {
-            services.Configure<Flags>(Configuration.GetSection("Flags"));
+            services.Configure<Features>(Configuration.GetSection(nameof(Features)));
         }
 
         private void ConfigureIoc(IServiceCollection services)
@@ -59,26 +59,26 @@ namespace ReloadConfigChangesDemo.Api
                 case 1:
                     services.AddSingleton<IConfigurationService>(serviceProvider =>
                     {
-                        var options = serviceProvider.GetRequiredService<IOptions<Flags>>();
+                        var options = serviceProvider.GetRequiredService<IOptions<Features>>();
                         return new ConfigurationService(options);
                     });
                     break;
                 case 2:
-                    services.AddScoped<IConfigurationService>(serviceProvider =>
+                    services.AddSingleton<IConfigurationService>(serviceProvider =>
                     {
-                        var options = serviceProvider.GetRequiredService<IOptionsSnapshot<Flags>>();
+                        var options = serviceProvider.GetRequiredService<IOptionsMonitor<Features>>();
                         return new ConfigurationService(options);
                     });
                     break;
                 case 3:
-                    services.AddSingleton<IConfigurationService>(serviceProvider =>
+                    services.AddScoped<IConfigurationService>(serviceProvider =>
                     {
-                        var options = serviceProvider.GetRequiredService<IOptionsMonitor<Flags>>();
+                        var options = serviceProvider.GetRequiredService<IOptionsSnapshot<Features>>();
                         return new ConfigurationService(options);
                     });
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException(nameof(choice));
+                    throw new ArgumentOutOfRangeException($"Unexpected choice {choice}");
             }
         }
     }

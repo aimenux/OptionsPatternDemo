@@ -6,40 +6,35 @@ namespace ReloadConfigChangesDemo.Api.Services
 {
     public class ConfigurationService : IConfigurationService
     {
-        private readonly IOptions<Flags> _options;
-        private readonly IOptionsSnapshot<Flags> _optionsSnapshot;
-        private readonly IOptionsMonitor<Flags> _optionsMonitor;
+        private readonly Features _features;
+        private readonly IOptions<Features> _options;
+        private readonly IOptionsSnapshot<Features> _optionsSnapshot;
+        private readonly IOptionsMonitor<Features> _optionsMonitor;
 
-        public ConfigurationService(IOptions<Flags> options)
+        public ConfigurationService(IOptions<Features> options)
         {
             _options = options;
+            _features = options.Value;
         }
 
-        public ConfigurationService(IOptionsSnapshot<Flags> options)
+        public ConfigurationService(IOptionsSnapshot<Features> options)
         {
             _optionsSnapshot = options;
+            _features = options.Value;
         }
 
-        public ConfigurationService(IOptionsMonitor<Flags> options)
+        public ConfigurationService(IOptionsMonitor<Features> options)
         {
             _optionsMonitor = options;
+            _features = options.CurrentValue;
         }
 
-        public string[] GetAllKeys()
+        public string[] GetValues()
         {
             return new[]
             {
-                nameof(Flags.Feature1), 
-                nameof(Flags.Feature2)
-            };
-        }
-
-        public string[] GetAllValues()
-        {
-            return new[]
-            {
-                GetFlags().Feature1, 
-                GetFlags().Feature2
+                _features.Feature1, 
+                _features.Feature2
             };
         }
 
@@ -47,19 +42,13 @@ namespace ReloadConfigChangesDemo.Api.Services
         {
             switch (ToTitleCase(key))
             {
-                case nameof(Flags.Feature1):
-                    return GetFlags().Feature1;
-                case nameof(Flags.Feature2):
-                    return GetFlags().Feature2;
+                case nameof(Features.Feature1):
+                    return _features.Feature1;
+                case nameof(Features.Feature2):
+                    return _features.Feature2;
                 default:
                     throw new ArgumentException($"Unfound key {key}");
             }
-        }
-
-        private Flags GetFlags()
-        {
-            if (_options != null) return _options.Value;
-            return _optionsSnapshot != null ? _optionsSnapshot.Value : _optionsMonitor?.CurrentValue;
         }
 
         private static string ToTitleCase(string input)
