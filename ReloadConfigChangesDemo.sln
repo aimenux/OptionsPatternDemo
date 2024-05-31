@@ -3,11 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28922.388
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReloadConfigChangesDemo.Api", "ReloadConfigChangesDemo.Api\ReloadConfigChangesDemo.Api.csproj", "{B82BADF7-9E63-4A46-9769-CC35D9FBE32E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "Api\Api.csproj", "{B82BADF7-9E63-4A46-9769-CC35D9FBE32E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{173338F9-B2D5-42D4-B21F-93AC67BB5881}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
+		global.json = global.json
 	EndProjectSection
 EndProject
 Global

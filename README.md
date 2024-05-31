@@ -1,12 +1,10 @@
 # ReloadConfigChangesDemo
 
-[Options pattern in net core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options)
+In this demo, i m using `IOptions`, `IOptionsMonitor` and `IOptionsSnapshot` to read configuration from settings file.
 
-In this demo, we are using `IOptions`, `IOptionsMonitor` and `IOptionsSnapshot` in a web api net core 2.2
+The strategy is enabled by setting the choice query parameter to :
+- `ConfigurationOptionsService` : for reading configuration only at startup
+- `ConfigurationOptionsMonitorService` : for reading configuration on each request
+- `ConfigurationOptionsSnapshotService` : for reading configuration on each request
 
-You need to set options strategy by setting choice configuration variable :
-- (1) : for `IOptions`
-- (2) : for `IOptionsMonitor`
-- (3) : for `IOptionsSnapshot`
-
-**`Tools`** : vs19, net core 2.2
+**`Tools`** : net 8.0
