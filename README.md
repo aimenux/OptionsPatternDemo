@@ -1,4 +1,9 @@
+[![.NET](https://github.com/aimenux/ReloadConfigChangesDemo/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/aimenux/ReloadConfigChangesDemo/actions/workflows/ci.yml)
+
 # ReloadConfigChangesDemo
+```
+Using options pattern in web api
+```
 
 In this demo, i m using `IOptions`, `IOptionsMonitor` and `IOptionsSnapshot` to read configuration from settings file.
 
