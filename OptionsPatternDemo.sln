@@ -3,14 +3,22 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28922.388
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "Api\Api.csproj", "{B82BADF7-9E63-4A46-9769-CC35D9FBE32E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "src\Api\Api.csproj", "{B82BADF7-9E63-4A46-9769-CC35D9FBE32E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{173338F9-B2D5-42D4-B21F-93AC67BB5881}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
 		global.json = global.json
 		.github\workflows\ci.yml = .github\workflows\ci.yml
+		.editorconfig = .editorconfig
+		Directory.Build.props = Directory.Build.props
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{70578E75-B079-4717-B9CC-E831157CB4AD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{77E22250-D1A1-464B-93D9-651F3ACECB49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "test\Tests\Tests.csproj", "{17BC7AC8-EBDC-4E39-B79E-C59AED17C6E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,11 +30,19 @@ Global
 		{B82BADF7-9E63-4A46-9769-CC35D9FBE32E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B82BADF7-9E63-4A46-9769-CC35D9FBE32E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B82BADF7-9E63-4A46-9769-CC35D9FBE32E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17BC7AC8-EBDC-4E39-B79E-C59AED17C6E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17BC7AC8-EBDC-4E39-B79E-C59AED17C6E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17BC7AC8-EBDC-4E39-B79E-C59AED17C6E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17BC7AC8-EBDC-4E39-B79E-C59AED17C6E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D1C55AEA-1454-4012-8AFA-CE28CAB08041}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B82BADF7-9E63-4A46-9769-CC35D9FBE32E} = {70578E75-B079-4717-B9CC-E831157CB4AD}
+		{17BC7AC8-EBDC-4E39-B79E-C59AED17C6E6} = {77E22250-D1A1-464B-93D9-651F3ACECB49}
 	EndGlobalSection
 EndGlobal
