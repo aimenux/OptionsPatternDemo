@@ -12,4 +12,4 @@ The strategy is enabled by setting the choice query parameter to :
 - `ConfigurationOptionsMonitorService` : for reading always new values (reload configuration in every usage even in the same request)
 - `ConfigurationOptionsSnapshotService` : for reading new values for each new request (reload configuration in every new request)
 
-**`Tools`** : net 8.0
+**`Tools`** : net 8.0, integration-tests
