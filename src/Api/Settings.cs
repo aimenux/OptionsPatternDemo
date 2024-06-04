@@ -2,7 +2,7 @@
 
 public sealed record Settings
 {
-    public const string ApplicationName = "ReloadConfigChangesDemo";
+    public const string ApplicationName = "OptionsPatternDemo";
     public string Entry1 { get; init; }
     public string Entry2 { get; init; }
 }
